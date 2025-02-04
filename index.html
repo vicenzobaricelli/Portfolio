@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description" content="Professional Portfolio of Vicenzo - Web Developer" />
+  <meta name="author" content="Vicenzo" />
+  <meta name="keywords" content="Web Developer, Portfolio, HTML, CSS, JavaScript" />
+  <title>Vicenzo | Web Developer Portfolio</title>
+
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link
+    href="https://fonts.googleapis.com/css2?family=Lora:wght@400;700&family=Montserrat:wght@400;700&display=swap"
+    rel="stylesheet"
+  />
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+
+  <header>
+    <nav class="navbar">
+      <div class="container">
+        <div class="logo">
+          <a href="index.html">Vicenzo</a>
+        </div>
+        <ul class="nav-menu">
+          <li><a href="index.html" class="nav-link active">Home</a></li>
+          <li><a href="about.html" class="nav-link">About</a></li>
+          <li><a href="projects.html" class="nav-link">Projects</a></li>
+          <li><a href="contact.html" class="nav-link">Contact</a></li>
+        </ul>
+      </div>
+    </nav>
+  </header>
+
+
+  <section class="hero">
+    <div class="hero-overlay"></div>
+    <div class="hero-content container">
+      <h1 id="typewriter-heading"></h1>
+      <p id="typewriter-sub"></p>
+      
+      
+      <a id="cta-btn" href="projects.html" class="btn" style="display: none;">
+        View My Work
+      </a>
+    </div>
+  </section>  
+
+
+  <footer>
+    <div class="container">
+      <p>&copy; 2025 Vicenzo. All Rights Reserved.</p>
+    </div>
+  </footer>
+  <script>
+    const headingText = "Welcome to My Portfolio.";
+    const subText =
+      "Hello, I'm Vicenzo, a passionate web developer eager to create modern and user-friendly websites.";
+  
+    const headingEl = document.getElementById("typewriter-heading");
+    const subEl = document.getElementById("typewriter-sub");
+    const ctaBtn = document.getElementById("cta-btn");
+  
+    let indexHeading = 0;
+    let indexSub = 0;
+  
+    function typeHeading() {
+      if (indexHeading < headingText.length) {
+        headingEl.textContent += headingText.charAt(indexHeading);
+        indexHeading++;
+        setTimeout(typeHeading, 50);
+      } else {
+        setTimeout(typeSub, 500);
+      }
+    }
+  
+    function typeSub() {
+  if (indexSub < subText.length) {
+    subEl.textContent += subText.charAt(indexSub);
+    indexSub++;
+    setTimeout(typeSub, 50);
+  } else {
+    ctaBtn.style.display = "inline-block"; 
+
+    setTimeout(() => {
+      ctaBtn.classList.add("show");
+    }, 300); 
+  }
+}
+  
+    
+    window.addEventListener("DOMContentLoaded", typeHeading);
+  </script>
+</body>
+</html>
